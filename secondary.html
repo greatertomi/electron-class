@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="Content-Security-Policy" content="script-src 'self' 'unsafe-inline'">
+    <title>Hello World!</title>
+    <style>
+        body {
+            user-select: none;
+            -webkit-app-region:drag;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Secondary Window</h1>
+    <p>Heey, I am the secondary window</p>
+    <input type="range" name="range" min="0" max="10" style="-webkit-app-region:no-drag">
+
+<script>
+    // You can also require other files to run in this process
+    require('./renderer.js')
+</script>
+</body>
+</html>
