@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="Content-Security-Policy" content="script-src 'self' 'unsafe-inline'">
+    <title>Hello World!</title>
+    <style>
+        html { font-family: sans-serif; background: #2B2E3B; color: #9FEAF9; }
+    </style>
+</head>
+<body>
+
+<h1>Hello Electron!</h1>
+<p>Build cross-platform desktop apps with JavaScript, HTML, and CSS</p>
+<button type="button" name="button" id="test-button">Test It</button>
+<button onclick="zoomUp()">Increase Zoom</button>
+<button onclick="zoomDown()">decrease Zoom</button>
+<button onclick="zoomReset()">Reset Zoom</button>
+<!--<h5><a href="#" onclick="newWin()">New Window</a></h5>
+<h5><a href="#" onclick="closeWin()">Close Window</a></h5>-->
+<script>
+    // You can also require other files to run in this process
+    require('./renderer.js')
+    /*let win
+
+    const newWin = () => {
+      win = window.open('https://electronjs.org', '_blank', 'width=500,height=450,alwaysOnTop=1')
+    }
+
+    const closeWin = () => {
+      win.close()
+    }*/
+
+    const {webFrame} = require('electron')
+    const zoomUp = () => {
+        webFrame.setZoomLevel(webFrame.getZoomFactor() + 1)
+    }
+
+    const zoomDown = () => {
+        webFrame.setZoomLevel(webFrame.getZoomFactor() - 1)
+    }
+
+    const zoomReset = () => {
+        webFrame.setZoomLevel(1)
+    }
+</script>
+</body>
+</html>
