@@ -13,7 +13,7 @@ function createWindow () {
     webPreferences: { nodeIntegration: true },
   });
 
-  // mainWindow.setProgressBar(0.25);
+  mainWindow.setProgressBar(0.25);
 
   // Load index.html into the new BrowserWindow
   mainWindow.loadFile('index.html');
